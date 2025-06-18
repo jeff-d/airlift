@@ -1,3 +1,6 @@
+# Ignore uv lock files
+uv.lock
+
 # Ignore env files
 *.env
 *.envrc
