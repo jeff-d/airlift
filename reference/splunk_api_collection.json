@@ -1,0 +1,334 @@
+{
+	"info": {
+		"_postman_id": "splunk-rest-api",
+		"name": "Splunk REST API",
+		"description": "Collection of Splunk REST API endpoints based on Splunk 9.4.2 REST API Reference",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Get Current Context",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/authentication/current-context?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "authentication", "current-context"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/authentication/users?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "authentication", "users"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Apps & Add-ons",
+			"item": [
+				{
+					"name": "Get Installed Apps",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/apps/local?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "apps", "local"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Saved Searches",
+			"item": [
+				{
+					"name": "Get Saved Searches",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/servicesNS/{{username}}/search/saved/searches?output_mode=json&count=0",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["servicesNS", "{{username}}", "search", "saved", "searches"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								},
+								{
+									"key": "count",
+									"value": "0"
+								}
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Detection Rules",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/servicesNS/{{username}}/search/saved/searches?output_mode=json&count=0&search=title%3D%2A+-+Rule",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["servicesNS", "{{username}}", "search", "saved", "searches"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								},
+								{
+									"key": "count",
+									"value": "0"
+								},
+								{
+									"key": "search",
+									"value": "title=* - Rule"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Dashboards & Views",
+			"item": [
+				{
+					"name": "Get Dashboards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/servicesNS/{{username}}/search/data/ui/views?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["servicesNS", "{{username}}", "search", "data", "ui", "views"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Data Inputs",
+			"item": [
+				{
+					"name": "Get Data Inputs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/data/inputs?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "data", "inputs"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Indexes",
+			"item": [
+				{
+					"name": "Get Indexes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/data/indexes?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "data", "indexes"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Users & Roles",
+			"item": [
+				{
+					"name": "Get Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/authorization/roles?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "authorization", "roles"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "System Info",
+			"item": [
+				{
+					"name": "Get License Usage",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic {{base64_credentials}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{splunk_host}}:{{splunk_port}}/services/licenser/usage?output_mode=json",
+							"host": ["{{splunk_host}}"],
+							"port": "{{splunk_port}}",
+							"path": ["services", "licenser", "usage"],
+							"query": [
+								{
+									"key": "output_mode",
+									"value": "json"
+								}
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "splunk_host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "splunk_port",
+			"value": "8089",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"key": "base64_credentials",
+			"value": "YWRtaW46Y2hhbmdlbWU=",
+			"type": "string"
+		}
+	]
+} 
