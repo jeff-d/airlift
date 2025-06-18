@@ -325,7 +325,7 @@ def display_banner():
     dd_site_line = f"  Datadog Site:  {dd_site}"
     dd_site_line = f"{dd_site_line:<77}"
     
-    s3_line = f"  S3 Bucket:     {s3_bucket} Status: {s3_status}"
+    s3_line = f"  S3 Bucket:     {s3_bucket} ({s3_status})"
     s3_line = f"{s3_line:<77}"
     
     config_info = f"""
