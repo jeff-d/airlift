@@ -1,3 +1,10 @@
+# Ignore env files
+*.env
+*.envrc
+
+# Ignore all files in the .git directory
+.git/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

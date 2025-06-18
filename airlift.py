@@ -293,12 +293,12 @@ def display_banner():
     banner = """
 ████████████████████████████████████████████████████████████████████████████████
 ██                                                                            ██
-██       █████╗ ██╗██████╗ ██╗     ██╗███████╗████████╗                      ██
-██      ██╔══██╗██║██╔══██╗██║     ██║██╔════╝╚══██╔══╝                      ██
-██      ███████║██║██████╔╝██║     ██║█████╗     ██║                         ██
-██      ██╔══██║██║██╔══██╗██║     ██║██╔══╝     ██║                         ██
-██      ██║  ██║██║██║  ██║███████╗██║██║        ██║                         ██
-██      ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝╚═╝        ╚═╝                         ██
+██       █████╗ ██╗██████╗ ██╗     ██╗███████╗████████╗                       ██
+██      ██╔══██╗██║██╔══██╗██║     ██║██╔════╝╚══██╔══╝                       ██
+██      ███████║██║██████╔╝██║     ██║█████╗     ██║                          ██
+██      ██╔══██║██║██╔══██╗██║     ██║██╔══╝     ██║                          ██
+██      ██║  ██║██║██║  ██║███████╗██║██║        ██║                          ██
+██      ╚═╝  ╚═╝╚═╝╚═╝  ╚═╝╚══════╝╚═╝╚═╝        ╚═╝                          ██
 ██                                                                            ██
 ████████████████████████████████████████████████████████████████████████████████
 """
@@ -315,13 +315,26 @@ def display_banner():
     # Get S3 bucket information and connectivity status
     s3_bucket, s3_status = get_s3_bucket_info()
     
+    # Format each line to exactly 77 characters (79 total with borders)
+    splunk_line = f"  Splunk Server: {splunk_host}:{splunk_port}"
+    splunk_line = f"{splunk_line:<77}"
+    
+    dd_org_line = f"  Datadog Org:   {dd_org}"
+    dd_org_line = f"{dd_org_line:<77}"
+    
+    dd_site_line = f"  Datadog Site:  {dd_site}"
+    dd_site_line = f"{dd_site_line:<77}"
+    
+    s3_line = f"  S3 Bucket:     {s3_bucket} Status: {s3_status}"
+    s3_line = f"{s3_line:<77}"
+    
     config_info = f"""
 Configuration Details:
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  Splunk Server: {splunk_host}:{splunk_port:<50} │
-│  Datadog Org:   {dd_org:<59} │
-│  Datadog Site:  {dd_site:<59} │
-│  S3 Bucket:     {s3_bucket:<45} Status: {s3_status:<13} │
+│{splunk_line}│
+│{dd_org_line}│
+│{dd_site_line}│
+│{s3_line}│
 └─────────────────────────────────────────────────────────────────────────────┘
 """
     
