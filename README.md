@@ -1,2 +1,5 @@
 # airlift
-splunk to datadog migration toolkit
+a Splunk inventory tool
+
+## Example
+![Dashboard](airlift.png "Airlift Dashboard")

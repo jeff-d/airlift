@@ -1,3 +1,9 @@
+# Ignore ssh keys
+
+
+# Ignore CSV files
+*.csv
+
 # Ignore uv lock files
 uv.lock
 
